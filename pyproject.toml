@@ -9,10 +9,10 @@ dependencies = [
     "requests>=2.25.0",
 ]
 
-[project.entry-points."ovos.plugin.tts"]
+[project.entry-points."mycroft.plugin.tts"]
 ovos-tts-plugin-elevenlabs = "ovos_tts_plugin_elevenlabs:ElevenLabsTTSPlugin"
 
-[project.entry-points."ovos.plugin.tts.config"]
+[project.entry-points."mycroft.plugin.tts.config"]
 ovos-tts-plugin-elevenlabs = "ovos_tts_plugin_elevenlabs:ElevenLabsTTSPluginConfig"
 
 [build-system]
