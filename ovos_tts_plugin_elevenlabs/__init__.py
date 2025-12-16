@@ -1,5 +1,9 @@
+import logging
+
 import requests
 from ovos_plugin_manager.templates.tts import TTS
+
+LOG = logging.getLogger(__name__)
 
 
 class ElevenLabsTTSPlugin(TTS):
@@ -8,8 +12,11 @@ class ElevenLabsTTSPlugin(TTS):
     API_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 
     def __init__(self, *args, **kwargs):
+        LOG.info("ElevenLabsTTSPlugin: Initializing...")
         # ElevenLabs returns mp3 by default
         super().__init__(*args, **kwargs, audio_ext="mp3", ssml_tags=[])
+
+        LOG.debug(f"ElevenLabsTTSPlugin: Config received: {self.config}")
 
         # Configuration options
         self.api_key = self.config.get("api_key")
@@ -21,7 +28,10 @@ class ElevenLabsTTSPlugin(TTS):
         self.use_speaker_boost = self.config.get("use_speaker_boost", True)
 
         if not self.api_key:
+            LOG.error("ElevenLabsTTSPlugin: No API key found in config!")
             raise ValueError("ElevenLabs API key is required. Set 'api_key' in config.")
+
+        LOG.info(f"ElevenLabsTTSPlugin: Loaded successfully with voice_id={self.voice_id}")
 
     def get_tts(self, sentence, wav_file):
         """Generate TTS audio using ElevenLabs API.
