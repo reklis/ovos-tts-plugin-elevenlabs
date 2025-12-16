@@ -1,0 +1,20 @@
+[project]
+name = "ovos-tts-plugin-elevenlabs"
+version = "0.1.0"
+description = "OVOS TTS plugin for ElevenLabs text-to-speech API"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "ovos-plugin-manager>=0.0.1",
+    "requests>=2.25.0",
+]
+
+[project.entry-points."ovos.plugin.tts"]
+ovos-tts-plugin-elevenlabs = "main:ElevenLabsTTSPlugin"
+
+[project.entry-points."ovos.plugin.tts.config"]
+ovos-tts-plugin-elevenlabs = "main:ElevenLabsTTSPluginConfig"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
