@@ -10,10 +10,10 @@ dependencies = [
 ]
 
 [project.entry-points."ovos.plugin.tts"]
-ovos-tts-plugin-elevenlabs = "main:ElevenLabsTTSPlugin"
+ovos-tts-plugin-elevenlabs = "ovos_tts_plugin_elevenlabs:ElevenLabsTTSPlugin"
 
 [project.entry-points."ovos.plugin.tts.config"]
-ovos-tts-plugin-elevenlabs = "main:ElevenLabsTTSPluginConfig"
+ovos-tts-plugin-elevenlabs = "ovos_tts_plugin_elevenlabs:ElevenLabsTTSPluginConfig"
 
 [build-system]
 requires = ["setuptools>=61.0"]
